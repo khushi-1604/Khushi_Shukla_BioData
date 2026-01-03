@@ -11,7 +11,7 @@ const AstroSection: React.FC<AstroSectionProps> = ({ isPrivate }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-white/40 backdrop-blur-sm border-2 border-rose-100 border-dashed rounded-[3rem] p-4 transition-all hover:bg-white/60">
+    <div className="bg-white/40 backdrop-blur-sm border-2 border-red-900 border-dashed rounded-[3rem] p-4 transition-all hover:bg-white/60">
       <motion.button 
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.01 }}
@@ -21,18 +21,18 @@ const AstroSection: React.FC<AstroSectionProps> = ({ isPrivate }) => {
         <div className="flex items-center gap-6">
           <motion.div 
             animate={{ rotate: isOpen ? 90 : 0 }}
-            className="p-4 bg-white rounded-[1.5rem] shadow-lg text-rose-500 border border-rose-50"
+            className="p-4 bg-white rounded-[1.5rem] shadow-lg text-red-900 border border-red-900"
           >
             <Compass size={28} />
           </motion.div>
           <div className="text-left">
-            <h4 className="font-royal text-2xl text-rose-900">Astro & Kundli Profile</h4>
-            <p className="text-xs text-rose-400 font-bold uppercase tracking-[0.2em] mt-1">Celestial Alignment & Heritage</p>
+            <h4 className="font-royal text-2xl text-red-900">Astro & Kundli Profile</h4>
+            <p className="text-xs text-red-900 font-bold uppercase tracking-[0.2em] mt-1">Celestial Alignment & Heritage</p>
           </div>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0, scale: isOpen ? 1.2 : 1 }}
-          className="text-rose-300 group-hover:text-rose-600 transition-colors"
+          className="text-red-900 group-hover:text-red-600 transition-colors"
         >
           <ChevronDown size={28} />
         </motion.div>
@@ -52,25 +52,25 @@ const AstroSection: React.FC<AstroSectionProps> = ({ isPrivate }) => {
                 <motion.div 
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  className="flex justify-between items-center py-4 border-b border-rose-100 group"
+                  className="flex justify-between items-center py-4 border-b border-red-900 group"
                 >
-                  <span className="text-xs font-bold text-rose-300 uppercase tracking-widest">Birth Date</span>
-                  <span className="text-lg font-bold text-rose-900">{isPrivate ? "Access Restricted" : "16 March 2004"}</span>
+                  <span className="text-xs font-bold text-red-900 uppercase tracking-widest">Birth Date</span>
+                  <span className="text-lg font-bold text-red-900">{isPrivate ? "Access Restricted" : "16 March 2004"}</span>
                 </motion.div>
-                <div className="p-6 bg-rose-50/50 rounded-3xl border border-rose-100 italic text-sm text-rose-800/70">
+                <div className="p-6 bg-red-100/50 rounded-3xl border border-red-900 italic text-sm text-red-900/90">
                   "Alignment of stars that bestows grace, intelligence, and traditional wisdom upon the persona."
                 </div>
               </div>
               <motion.div 
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                className="p-8 bg-white rounded-[2rem] border border-rose-100 shadow-xl shadow-rose-100/20 relative group overflow-hidden"
+                className="p-8 bg-white rounded-[2rem] border border-red-900 shadow-xl shadow-red-900/20 relative group overflow-hidden"
               >
                 <div className="absolute -top-4 -right-4 p-8 opacity-[0.05] group-hover:rotate-45 transition-transform duration-1000">
                   <Star size={100} fill="currentColor" />
                 </div>
                 <Sparkles className="absolute top-6 right-6 text-amber-200 animate-pulse" size={24} />
-                <h5 className="font-royal text-xl text-rose-800 mb-6 flex items-center gap-2">
+                <h5 className="font-royal text-xl text-red-900 mb-6 flex items-center gap-2">
                   Spiritual Attributes
                 </h5>
                 <ul className="space-y-4">
@@ -88,7 +88,7 @@ const AstroSection: React.FC<AstroSectionProps> = ({ isPrivate }) => {
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                       <span className="font-bold text-xs uppercase tracking-widest text-gray-400 w-16">{attr.label}</span>
-                      <span className="font-semibold text-rose-900">{attr.val}</span>
+                      <span className="font-semibold text-red-900">{attr.val}</span>
                     </motion.li>
                   ))}
                 </ul>
