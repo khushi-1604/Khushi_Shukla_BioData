@@ -319,12 +319,13 @@ const App: React.FC = () => {
               />
               <div className="relative z-10 flex flex-col items-center">
                 <motion.div 
-                  className="w-32 h-32 rounded-full bg-white shadow-2xl flex items-center justify-center mb-10 text-rose-500 group-hover:bg-rose-600 group-hover:text-white transition-all duration-700"
+                  className="w-32 h-32 rounded-full bg-white shadow-2xl flex items-center justify-center mb-2 text-rose-500 group-hover:bg-rose-600 group-hover:text-white transition-all duration-700"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
                   <Eye size={48} strokeWidth={1} />
                 </motion.div>
+                <span className="text-xs text-rose-500 mb-8">click</span>
                 <h3 className="font-royal text-5xl text-rose-900 mb-4 tracking-tight leading-tight">The Royal Portrait</h3>
                 <p className="text-rose-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-10 italic">Behold the confluence of tradition & vision</p>
                 <div className="flex justify-center gap-4">

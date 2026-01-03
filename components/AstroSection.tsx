@@ -18,12 +18,15 @@ const AstroSection: React.FC<AstroSectionProps> = ({ isPrivate }) => {
         className="w-full flex items-center justify-between p-8 group transition-all"
       >
         <div className="flex items-center gap-6">
-          <motion.div 
-            animate={{ rotate: isOpen ? 90 : 0 }}
-            className="p-4 bg-white rounded-[1.5rem] shadow-lg text-red-900 border border-red-900"
-          >
-            <Compass size={28} />
-          </motion.div>
+          <div className="flex flex-col items-center">
+            <motion.div 
+              animate={{ rotate: isOpen ? 90 : 0 }}
+              className="p-4 bg-white rounded-[1.5rem] shadow-lg text-red-900 border border-red-900"
+            >
+              <Compass size={28} />
+            </motion.div>
+            <span className="text-xs text-red-900 mt-1">click</span>
+          </div>
           <div className="text-left">
             <h4 className="font-royal text-2xl text-red-900">Astro & Kundli Profile</h4>
             <p className="text-xs text-red-900 font-bold uppercase tracking-[0.2em] mt-1">Celestial Alignment & Heritage</p>
