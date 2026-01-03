@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Compass, Lock, ChevronDown, Sparkles, Star } from 'lucide-react';
@@ -33,6 +32,7 @@ const AstroSection: React.FC<AstroSectionProps> = ({ isPrivate }) => {
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0, scale: isOpen ? 1.2 : 1 }}
           className="text-red-900 group-hover:text-red-600 transition-colors"
+          style={{ color: 'brown' }}
         >
           <ChevronDown size={28} />
         </motion.div>

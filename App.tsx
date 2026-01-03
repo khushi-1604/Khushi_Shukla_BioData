@@ -325,13 +325,13 @@ const App: React.FC = () => {
                   <div className="p-4 bg-white rounded-2xl text-rose-500 mb-6 shadow-xl group-hover/card:bg-rose-500 group-hover/card:text-white transition-all duration-500">
                     <Phone size={28} />
                   </div>
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-rose-300 mb-3 font-black">Father's Presence</span>
-                  <p className="text-3xl font-bold text-rose-900 mb-2 font-inter tracking-tight">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-red-900 mb-3 font-black">Father's Presence</span>
+                  <p className="text-3xl font-bold text-red-900 mb-2 font-inter tracking-tight">
                     {isPrivate ? "Locked" : "98255 10034"}
                   </p>
-                  <p className="text-sm text-rose-700/50 font-medium tracking-wide mb-4">Dr. Yagnesh Shukla</p>
+                  <p className="text-sm text-red-900 font-medium tracking-wide mb-4">Dr. Yagnesh Shukla</p>
                   {!isPrivate && (
-                    <span className="text-[9px] font-bold text-rose-400/60 uppercase tracking-widest animate-pulse">Click to Call Directly</span>
+                    <span className="text-[9px] font-bold text-red-900 uppercase tracking-widest animate-pulse">Click to Call Directly</span>
                   )}
                 </motion.a>
 
@@ -344,13 +344,13 @@ const App: React.FC = () => {
                   <div className="p-4 bg-white rounded-2xl text-rose-500 mb-6 shadow-xl group-hover/card:bg-rose-500 group-hover/card:text-white transition-all duration-500">
                     <Phone size={28} />
                   </div>
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-rose-300 mb-3 font-black">Mother's Presence</span>
-                  <p className="text-3xl font-bold text-rose-900 mb-2 font-inter tracking-tight">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-red-900 mb-3 font-black">Mother's Presence</span>
+                  <p className="text-3xl font-bold text-red-900 mb-2 font-inter tracking-tight">
                     {isPrivate ? "Locked" : "96647 08733"}
                   </p>
-                  <p className="text-sm text-rose-700/50 font-medium tracking-wide mb-4">Bhavini Shukla</p>
+                  <p className="text-sm text-red-900 font-medium tracking-wide mb-4">Bhavini Shukla</p>
                   {!isPrivate && (
-                    <span className="text-[9px] font-bold text-rose-400/60 uppercase tracking-widest animate-pulse">Click to Call Directly</span>
+                    <span className="text-[9px] font-bold text-red-900 uppercase tracking-widest animate-pulse">Click to Call Directly</span>
                   )}
                 </motion.a>
 
@@ -430,7 +430,7 @@ const QuickStat = ({ icon, label, value, delay = 0 }: { icon: React.ReactNode, l
     <div className="text-rose-400 mb-4 group-hover:scale-125 transition-all duration-500 p-3 bg-rose-50/50 rounded-2xl">
       {icon}
     </div>
-    <span className="text-[10px] uppercase tracking-[0.2em] text-rose-200 font-black mb-1 group-hover:text-rose-400 transition-colors">
+    <span className="text-[10px] uppercase tracking-[0.2em] text-red-900 font-black mb-1 group-hover:text-red-900 transition-colors">
       {label}
     </span>
     <span className="text-sm font-bold text-rose-900 tracking-tight leading-tight">

@@ -65,7 +65,7 @@ const FamilyMember = ({ role, name, title, description }: any) => (
       <User size={20} />
     </div>
     <div>
-      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-rose-300">{role}</span>
+      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-red-900">{role}</span>
       <h4 className="text-xl font-bold text-rose-900 mb-1">{name}</h4>
       <p className="text-sm font-semibold text-rose-700/80 mb-2">{title}</p>
       <p className="text-sm text-gray-500 italic">{description}</p>

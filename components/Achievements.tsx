@@ -46,8 +46,8 @@ const Achievements: React.FC = () => {
   return (
     <div className="py-12">
       <div className="text-center mb-16">
-        <h2 className="font-royal text-4xl text-rose-900 mb-4">Achievements & Excellence</h2>
-        <p className="text-rose-700/60 uppercase tracking-widest text-xs font-bold">A Journey of Discipline and Dedication</p>
+        <h2 className="font-royal text-4xl text-red-900 mb-4">Achievements & Excellence</h2>
+        <p className="text-red-900 uppercase tracking-widest text-xs font-bold">A Journey of Discipline and Dedication</p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -58,22 +58,22 @@ const Achievements: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="group bg-white p-8 rounded-[2rem] shadow-lg shadow-rose-100/50 border border-rose-50 hover:border-rose-200 transition-all"
+            className="group bg-white p-8 rounded-[2rem] shadow-lg shadow-red-900/20 border border-red-900 hover:border-red-700 transition-all"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 rounded-2xl bg-rose-50 group-hover:scale-110 transition-transform">
-                {item.icon}
+              <div className="p-3 rounded-2xl bg-red-100 group-hover:scale-110 transition-transform">
+                {React.cloneElement(item.icon, { className: 'text-red-900' })}
               </div>
-              <span className="text-[10px] font-black tracking-widest text-rose-300 uppercase">{item.year}</span>
+              <span className="text-[10px] font-black tracking-widest text-red-900 uppercase">{item.year}</span>
             </div>
-            <h4 className="text-xl font-bold text-rose-900 mb-2">{item.title}</h4>
+            <h4 className="text-xl font-bold text-red-900 mb-2">{item.title}</h4>
             <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
           </motion.div>
         ))}
       </div>
       
       <div className="mt-12 text-center">
-        <p className="text-rose-900/40 text-sm font-medium">
+        <p className="text-red-900/80 text-sm font-medium">
           National & International Volleyball Captain (20+ Wins) • Yuva Sansad Speaker (Role of MP)
         </p>
       </div>
