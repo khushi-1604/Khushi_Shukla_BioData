@@ -143,7 +143,12 @@ const App: React.FC = () => {
             >
               <div className="absolute inset-0 bg-rose-200 blur-2xl opacity-20" />
               <div className="relative p-6 rounded-full bg-white/40 backdrop-blur-sm border border-rose-100 shadow-xl">
-                <Sparkles className="text-rose-500" size={32} />
+                <img
+                  src="/om.png"
+                  alt="Om Symbol"
+                  className="w-24 h-24 object-contain"
+                  style={{ display: 'block', margin: '0 auto' }}
+                />
               </div>
             </motion.div>
           </div>
@@ -300,10 +305,7 @@ const App: React.FC = () => {
           viewport={{ once: true }}
           className="text-center pt-20 pb-20"
         >
-          <div className="sticky top-8 flex justify-center z-50 pointer-events-none mb-16">
-            <PrivacyToggle isPrivate={isPrivate} onToggle={() => setIsPrivate(!isPrivate)} />
-          </div>
-          
+            
           <div className="inline-block p-1.5 bg-gradient-to-br from-amber-100 via-rose-200 to-amber-100 rounded-[4rem] shadow-2xl overflow-hidden relative group">
             <motion.div 
               className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"
