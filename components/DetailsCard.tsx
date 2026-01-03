@@ -54,7 +54,7 @@ const DetailsCard: React.FC<DetailsCardProps> = ({ isPrivate }) => {
               {item.icon}
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mb-2 group-hover:text-slate-800 transition-colors">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-red-900 mb-2 group-hover:text-red-900 transition-colors">
                 {item.label}
               </p>
               <p className="text-2xl font-semibold text-gray-800 tracking-tight group-hover:text-slate-900 transition-colors">
