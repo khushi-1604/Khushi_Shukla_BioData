@@ -25,6 +25,15 @@ import PrivacyToggle from './components/PrivacyToggle';
 const App: React.FC = () => {
   const [isPrivate, setIsPrivate] = useState(false);
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryPreview, setGalleryPreview] = useState<string | null>(null);
+  const galleryImages = [
+    '/k1.jpeg',
+    '/k2.jpeg',
+    '/k3.jpeg',
+    '/k4.jpeg',
+    '/family.jpeg',
+  ];
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -260,7 +269,7 @@ const App: React.FC = () => {
         >
           <motion.div
             whileHover={{ y: -15, scale: 1.02 }}
-            onClick={() => setActiveImage("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=1000&h=1300")}
+            onClick={() => setGalleryOpen(true)}
             className="group relative cursor-pointer"
           >
             <div className="absolute -inset-8 border border-rose-100 rounded-[4rem] pointer-events-none group-hover:border-rose-300 transition-all duration-700" />
@@ -376,35 +385,82 @@ const App: React.FC = () => {
 
       {/* Fullscreen Image Modal */}
       <AnimatePresence>
-        {activeImage && (
+        {galleryOpen && !galleryPreview && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setActiveImage(null)}
+            onClick={() => setGalleryOpen(false)}
             className="fixed inset-0 z-[100] bg-[#1a0b0b]/98 backdrop-blur-2xl flex items-center justify-center p-4 cursor-zoom-out"
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 50 }}
+              initial={{ scale: 0.95, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 50 }}
+              exit={{ scale: 0.95, opacity: 0, y: 50 }}
               transition={{ type: "spring", damping: 25, stiffness: 150 }}
-              className="relative max-w-3xl w-full"
-              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-3xl w-full bg-white rounded-3xl p-6"
+              onClick={e => e.stopPropagation()}
             >
-              <div className="absolute -inset-1 bg-gradient-to-tr from-amber-200 via-rose-400 to-amber-200 rounded-[2.2rem] blur opacity-30" />
-              <img
-                src={activeImage}
-                alt="Portrait"
-                className="relative w-full h-auto rounded-[2rem] shadow-2xl border-2 border-white/10"
-              />
-              <motion.button 
+              <div className="flex flex-wrap gap-4 justify-center">
+                {galleryImages.map((img, idx) => (
+                  <img
+                    key={img}
+                    src={img}
+                    alt={`Gallery ${idx + 1}`}
+                    className="w-64 h-80 object-cover rounded-2xl shadow-lg border-2 border-white/10 cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setGalleryPreview(img)}
+                  />
+                ))}
+              </div>
+              <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={() => setActiveImage(null)}
-                className="absolute -top-16 right-0 text-white/60 hover:text-white transition-colors flex items-center gap-2 uppercase tracking-[0.4em] text-[10px] font-bold"
+                onClick={() => setGalleryOpen(false)}
+                className="absolute -top-10 right-0 text-white/60 hover:text-white transition-colors flex items-center gap-2 uppercase tracking-[0.4em] text-[10px] font-bold"
               >
-                Close View
+                Close Gallery
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setGalleryOpen(false)}
+                className="absolute -top-10 left-0 bg-red-900 text-white px-4 py-2 rounded-full shadow font-bold text-xs uppercase tracking-widest hover:bg-red-700 transition-colors"
+              >
+                Back
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+
+        {galleryPreview && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setGalleryPreview(null)}
+            className="fixed inset-0 z-[110] bg-[#1a0b0b]/98 backdrop-blur-2xl flex items-center justify-center p-4 cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 50 }}
+              transition={{ type: "spring", damping: 25, stiffness: 150 }}
+              className="relative max-w-3xl w-full"
+              onClick={e => e.stopPropagation()}
+            >
+              <img
+                src={galleryPreview}
+                alt="Gallery Preview"
+                className="relative w-full h-auto rounded-[2rem] shadow-2xl border-2 border-white/10"
+              />
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setGalleryPreview(null)}
+                className="absolute -top-10 right-0 bg-red-900 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold shadow hover:bg-red-700 transition-colors"
+                aria-label="Close Preview"
+              >
+                ×
               </motion.button>
             </motion.div>
           </motion.div>
