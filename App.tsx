@@ -391,7 +391,7 @@ const App: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setGalleryOpen(false)}
-            className="fixed inset-0 z-[100] bg-[#1a0b0b]/98 backdrop-blur-2xl flex items-center justify-center p-4 cursor-zoom-out"
+            className="fixed inset-0 z-[100] bg-[#1a0b0b]/98 backdrop-blur-2xl flex items-center justify-center p-4 cursor-zoom-out overflow-y-auto"
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 50 }}
@@ -420,6 +420,18 @@ const App: React.FC = () => {
               >
                 Close Gallery
               </motion.button>
+
+              {/* Go Back button at the end of gallery */}
+              <div className="w-full flex justify-center mt-8">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setGalleryOpen(false)}
+                  className="bg-red-900 text-white px-8 py-3 rounded-full shadow font-bold text-base uppercase tracking-widest hover:bg-red-700 transition-colors"
+                >
+                  Go Back
+                </motion.button>
+              </div>
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
