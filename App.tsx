@@ -144,7 +144,7 @@ const App: React.FC = () => {
               <div className="absolute inset-0 bg-rose-200 blur-2xl opacity-20" />
               <div className="relative p-6 rounded-full bg-white/40 backdrop-blur-sm border border-rose-100 shadow-xl">
                 <img
-                  src="public/om.png"
+                  src="/om.png"
                   alt="Om Symbol"
                   className="w-24 h-24 object-contain"
                   style={{ display: 'block', margin: '0 auto' }}
