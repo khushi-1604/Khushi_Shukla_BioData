@@ -75,7 +75,7 @@ const AstroSection: React.FC<AstroSectionProps> = ({ isPrivate }) => {
                 </h5>
                 <ul className="space-y-4">
                   {[
-                    { label: "Gotra", val: "Kaundilya" },
+                    { label: "Gotra", val: "Kaundinya" },
                     { label: "Caste", val: "Audichya Sada Charso" },
                     { label: "Varna", val: "Brahmin" }
                   ].map((attr, i) => (

@@ -21,13 +21,13 @@ const Achievements: React.FC = () => {
       title: "Gold Medalist",
       year: "2022",
       icon: <Award className="text-amber-500" />,
-      desc: "Indo-Bangla & Asian Championships (Volleyball)."
+      desc: "Indo-Bangla & Asian Championships (Tennis Volleyball)."
     },
     {
       title: "NCC National Ranker",
       year: "2023",
       icon: <Target className="text-emerald-500" />,
-      desc: "OTA Chennai & RDC Delhi Top National Honors."
+      desc: "OTA Chennai & RDC Delhi Top 5 National Honors."
     },
     {
       title: "Academic Excellence",
@@ -39,7 +39,7 @@ const Achievements: React.FC = () => {
       title: "Diploma in Kathak",
       year: "Graduated",
       icon: <Music className="text-purple-500" />,
-      desc: "Specialization from MSU, Vadodara."
+      desc: "Specialization from MSU, Vadodara. In 2020 with Destinction."
     }
   ];
 
