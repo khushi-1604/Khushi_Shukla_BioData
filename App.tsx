@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, Variants } from 'framer-motion';
 import { 
   Heart, 
@@ -89,8 +89,42 @@ const App: React.FC = () => {
     </div>
   );
 
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const playAudio = () => {
+      const audio = audioRef.current;
+      if (audio) {
+        audio.volume = 0.5;
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      }
+    };
+    // Try to play on mount
+    playAudio();
+    // Also try to play on first user interaction (for stricter browsers)
+    const onUserInteract = () => {
+      playAudio();
+      window.removeEventListener('click', onUserInteract);
+      window.removeEventListener('keydown', onUserInteract);
+      window.removeEventListener('touchstart', onUserInteract);
+    };
+    window.addEventListener('click', onUserInteract);
+    window.addEventListener('keydown', onUserInteract);
+    window.addEventListener('touchstart', onUserInteract);
+    return () => {
+      window.removeEventListener('click', onUserInteract);
+      window.removeEventListener('keydown', onUserInteract);
+      window.removeEventListener('touchstart', onUserInteract);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#fffcf9] text-gray-800 overflow-x-hidden selection:bg-rose-100 selection:text-rose-900 font-inter">
+    <>
+      <audio ref={audioRef} src="/krishna_peaceful_flute.mp3" autoPlay loop hidden />
+      <div className="min-h-screen bg-[#fffcf9] text-gray-800 overflow-x-hidden selection:bg-rose-100 selection:text-rose-900 font-inter">
       <FloatingElements />
 
       {/* Reading Progress Bar */}
@@ -483,6 +517,7 @@ const App: React.FC = () => {
         Authentic • Cultured • Eternal
       </footer>
     </div>
+    </>
   );
 };
 
